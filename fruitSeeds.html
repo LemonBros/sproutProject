@@ -32,49 +32,21 @@ body{
   display: grid;
   grid-template-columns: 1.4fr 0.1fr 1.4fr 0.1fr 1.4fr 0.1fr 1.4fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
   grid-template-areas:
-    "home . flower . Veggie- . fruit";
+    "home . flower . Veggie . fruit";
   grid-area: button;
 }
+
+.bt{
+  text-decoration:none;
+}
+
+
 .fruit { 
     grid-area: fruit;
     margin: 10px;
     text-align: center;
-    border-radius: 5px;
-    background-color:rgb(207,206,220);
-    padding-left:20px;
-    padding-top: 10px;
-    padding-right:20px;
-    padding-bottom:10px;}
-
-.Veggie- { 
-    grid-area: Veggie-;
-    margin: 10px;
-    text-align: center;
-    border-radius: 5px;
-    background-color:rgb(207,206,220);
-    padding-left:20px;
-    padding-top: 10px;
-    padding-right:20px;
-    padding-bottom:10px;}
-
-.flower { 
-    grid-area: flower;
-    margin: 10px;
-    text-align: center;
-    border-radius: 5px;
-    background-color:rgb(207,206,220);
-    padding-left:20px;
-    padding-top: 10px;
-    padding-right:20px;
-    padding-bottom:10px;}
-
-.home { 
-    grid-area: home;
-    margin: 10px;
-    text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color:rgb(207,206,220);
     padding-left:20px;
     padding-top: 10px;
@@ -82,11 +54,47 @@ body{
     padding-bottom:10px;
     }
 
+.Veggie { 
+    grid-area: Veggie;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color:rgb(207,206,220);
+    padding-left:20px;
+    padding-top: 10px;
+    padding-right:20px;
+    padding-bottom:10px;
+  }
+
+.flower { 
+    grid-area: flower;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color:rgb(207,206,220);
+    padding-left:20px;
+    padding-top: 10px;
+    padding-right:20px;
+    padding-bottom:10px;
+ }
+
+.home { 
+    grid-area: home;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background-color:rgb(207,206,220);
+    padding-left:20px;
+    padding-top: 10px;
+    padding-right:20px;
+    padding-bottom:10px;
+
+    }
+
 .cart {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
+  /* grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr; */
   grid-template-areas:
     ". . ."
     ". . .";
@@ -97,7 +105,6 @@ body{
   display: grid;
   grid-template-columns: 0.3fr 2.4fr 0.3fr;
   grid-template-rows: 0.1fr 2.6fr 0.4fr;
-  gap: 0px 0px;
   grid-template-areas:
     ". . ."
     ". products ."
@@ -107,11 +114,10 @@ body{
 
 .products {
   background-color: rgb(0,186,0);
-
+  border-color:rgb(49,138,103)
   display: grid;
-  grid-template-columns: 0.2fr 2.3fr 0.3fr 2.3fr 0.3fr 2.3fr 0.2fr;
-  grid-template-rows: 0.2fr 1.7fr 0.1fr 1.7fr 0.2fr;
-  gap: 0px 0px;
+  grid-template-columns: 0.5fr 2.0fr 0.5fr 2.0fr 0.5fr 2.0fr 0.5fr;
+  grid-template-rows: 0.3fr 2.0fr 0.2fr 2.0fr 0.3fr;
   grid-template-areas:
     ". . . . . . ."
     ". product-1 . product-2 . product-3 ."
@@ -122,33 +128,34 @@ body{
 }
 .product-1 { 
     grid-area: product-1;
-    margin: 20px; }
+ }
 
 .product-2 { 
     grid-area: product-2;
-    margin: 20px; }
+ }
 
 .product-3 { 
     grid-area: product-3;
-    margin: 20px; }
+ }
 
 .product-4 { 
     grid-area: product-4;
-    margin: 20px; }
+ }
 
 .product-5 { 
     grid-area: product-5;
-    margin: 20px; }
+}
 
 .product-6 { 
     grid-area: product-6;
-    margin: 20px; }
-
+ 
+    }
 
 .p{
-    width: 100%;
-    height: auto;
-    }
+  width:100%;
+  height:100%;
+}
+
 
 
 </style>
@@ -161,50 +168,51 @@ body{
     <div class="grid-container">
         <div class="top">
           <div class="logo">
-            <img src="Sprout-Logo.png" alt="logo" width="400" height="190"> 
+            <img src="Sprout-Logo.png" alt="logo" width="400" height="150"> 
           </div>
           <div class="button">
             <div class="fruit">
-                <a href="file:///Users/elaine/sproutProject/sproutProject/fruitSeeds.html">Fruit Seeds</a>
-            </div>
-            <div class="Veggie-">
-                <a href="file:///Users/elaine/sproutProject/sproutProject/fruitSeeds.html">Vegetable Seeds</a>
-            </div>
+                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_wRc90BrxiIP7TmJ85tRyrzunB26b68Lm" class="bt">Fruit Seeds</a></div>
+            
+            <div class="Veggie">
+                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_wRc90BrxiIP7TmJ85tRyrzunB26b68Lm" class="bt">Vegetable Seeds</a></div>
+            
             <div class="flower">
-                <a href="file:///Users/elaine/sproutProject/sproutProject/fruitSeeds.html">Flower Seeds</a>
-            </div>
+                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_wRc90BrxiIP7TmJ85tRyrzunB26b68Lm" class="bt">Flower Seeds</a></div>
+            
             <div class="home">
-                <a href="file:///Users/elaine/sproutProject/sproutProject/fruitSeeds.html">Home</a>
-            </div>
+                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_wRc90BrxiIP7TmJ85tRyrzunB26b68Lm" class="bt">Home</a></div>
+            
           </div>
+
           <div class="cart"></div>
         </div>
+
         <div class="bottom">
           <div class="products">
             <div class="product-1">
                 <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="grey.jpg" class="p" alt="Seeds">
-            </div>
+                    <img src="grey.jpg"class="p" alt="product-1"></a></div>
+     
             <div class="product-2">
                 <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="grey.jpg" class="p" alt="Seeds">
-            </div>
+                    <img src="grey.jpg" class="p" alt="product-2"></a></div>
+         
             <div class="product-3">
                 <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="grey.jpg" class="p" alt="Seeds">
-            </div>
+                    <img src="grey.jpg" class="p" alt="product-3"></a></div>
+  
             <div class="product-4">
                 <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="grey.jpg" class="p" alt="Seeds">
-            </div>
+                    <img src="grey.jpg" class="p" alt="product-4"></a></div>
+
             <div class="product-5">
                 <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="grey.jpg" class="p" alt="Seeds">
-            </div>
+                    <img src="grey.jpg" class="p" alt="product-5"></a></div>
+
             <div class="product-6">
                 <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="grey.jpg" class="p" alt="Seeds">
-            </div>
+                    <img src="grey.jpg" class="p" alt="product-6"></a></div>
           </div>
         </div>
       </div>
