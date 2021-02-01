@@ -4,7 +4,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 1.8fr 1fr;
+  grid-template-rows: 0.5fr 1.5fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "top top top"
@@ -14,16 +14,38 @@
 
 .top {
   display: grid;
-  grid-template-columns: 0.4fr 1.2fr 1.3fr 1.1fr;
-  grid-template-rows: 2.3fr 0.5fr;
+  grid-template-columns: 0.4fr 2.2fr 1.0fr 0.5fr;
+  grid-template-rows: 2.4fr 0.4fr;
   gap: 0px 0px;
   grid-template-areas:
     ". logo . cart"
-    ". button button .";
+    ". button  . .";
   grid-area: top;
 }
 
-.logo { grid-area: logo; }
+.logo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "sprout . .";
+  grid-area: logo;
+}
+
+.sprout { grid-area: sprout; }
+
+.cart {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    ". . icon";
+  grid-area: cart;
+}
+
+.icon{
+  grid-area: icon;}
+
 
 body{
     background-color:rgb(201,255,208);}
@@ -91,16 +113,6 @@ body{
 
     }
 
-.cart {
-  display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr; */
-  grid-template-areas:
-    ". . ."
-    ". . .";
-  grid-area: cart;
-}
-
 .bottom {
   display: grid;
   grid-template-columns: 0.3fr 2.4fr 0.3fr;
@@ -113,8 +125,8 @@ body{
 }
 
 .products {
-  background-color: rgb(0,186,0);
-  border-color:rgb(49,138,103)
+  background:rgb(105, 216, 151) ;
+  border: 10px solid rgb(0,186,0);
   display: grid;
   grid-template-columns: 0.5fr 2.0fr 0.5fr 2.0fr 0.5fr 2.0fr 0.5fr;
   grid-template-rows: 0.3fr 2.0fr 0.2fr 2.0fr 0.3fr;
@@ -168,7 +180,8 @@ body{
     <div class="grid-container">
         <div class="top">
           <div class="logo">
-            <img src="Sprout-Logo.png" alt="logo" width="400" height="150"> 
+            <div class="sprout">
+            <img src="Sprout-Logo.png" alt="logo" width="400" height="150"></div> 
           </div>
           <div class="button">
             <div class="fruit">
@@ -185,7 +198,9 @@ body{
             
           </div>
 
-          <div class="cart"></div>
+          <div class="cart">
+            <div class="icon"></div>
+            <img src="cart.png" alt="cart" width="70" height="70"></div>
         </div>
 
         <div class="bottom">
