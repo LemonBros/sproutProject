@@ -1,10 +1,28 @@
 body{
     background-color: #c9ffd0;
 }
-img{
+
+.top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.right {
+    justify-self: right;
+}
+.left {
+    justify-self: left;
+}
+/*
+.left{
     margin-left:auto;
     margin-top:auto;
 }
+.right{
+    margin-right:auto;
+    margin-top:auto;
+    align-self: top-right;
+}
+*/
 .order{
     background-color: #95c7b1;
     border: #00ba00 5px solid;
@@ -20,7 +38,6 @@ img{
     text-align: center;
 }
 
-
 .order > .total {
     grid-column: span 6;
     justify-self: center;
@@ -29,6 +46,12 @@ img{
 button{
     background-color: #cfd8dc;
 }
+
+.quantity-field{
+    background-color: #cfd8dc;
+    width:100%;
+}
+
 .order > div{
     background-color: #cfd8dc;
     grid-column-gap: 1em;
@@ -37,27 +60,8 @@ button{
 .option{
     visibility:hidden;
 }
+
 .summary{
     display:grid;
 
 }
-/* .order{
-    float:left;
-}
-.summary{
-    float:right;
-}
-.order >h1{grid-column: header;}
-.discription{grid-area:main;}
-.price{grid-area:right;}
-.quantity{grid-area:menu;}
-.remove{grid-area:footer;}
-
-.order> div{
-    display:grid;
-
-    grid-template-areas: 
-        'header header header header header'
-        'main main main menu right'
-        'footer footer footer footer footer';
-} */
