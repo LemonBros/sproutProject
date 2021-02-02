@@ -14,11 +14,11 @@
 
 .top {
   display: grid;
-  grid-template-columns: 0.4fr 2.2fr 1.0fr 0.5fr;
-  grid-template-rows: 2.4fr 0.4fr;
+  grid-template-columns: 0.4fr 2.0fr 1.1fr 0.5fr;
+  grid-template-rows: 1.8fr 0.2fr;
   gap: 0px 0px;
   grid-template-areas:
-    ". logo . cart"
+    ". logo cart ."
     ". button  . .";
   grid-area: top;
 }
@@ -36,10 +36,10 @@
 
 .cart {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.9fr 0.1fr;
   grid-template-rows: 1fr;
   grid-template-areas:
-    ". . icon";
+    "icon .";
   grid-area: cart;
 }
 
@@ -68,12 +68,14 @@ body{
     grid-area: fruit;
     margin: 10px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color:rgb(207,206,220);
     padding-left:20px;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-right:20px;
-    padding-bottom:10px;
+    padding-bottom:20px;
+    font-family:Arial;
+    font-size:25px;
     }
 
 .Veggie { 
@@ -83,9 +85,11 @@ body{
     border-radius: 10px;
     background-color:rgb(207,206,220);
     padding-left:20px;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-right:20px;
-    padding-bottom:10px;
+    padding-bottom:20px;
+    font-family:Arial;
+    font-size:25px;
   }
 
 .flower { 
@@ -95,9 +99,11 @@ body{
     border-radius: 10px;
     background-color:rgb(207,206,220);
     padding-left:20px;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-right:20px;
-    padding-bottom:10px;
+    padding-bottom:20px;
+    font-family:Arial;
+    font-size:25px;
  }
 
 .home { 
@@ -107,16 +113,17 @@ body{
     border-radius: 10px;
     background-color:rgb(207,206,220);
     padding-left:20px;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-right:20px;
-    padding-bottom:10px;
-
+    padding-bottom:20px;
+    font-family:Arial;
+    font-size:25px;
     }
 
 .bottom {
   display: grid;
   grid-template-columns: 0.3fr 2.4fr 0.3fr;
-  grid-template-rows: 0.1fr 2.6fr 0.4fr;
+  grid-template-rows: 0.3fr 2.4fr 0.5fr;
   grid-template-areas:
     ". . ."
     ". products ."
@@ -129,7 +136,7 @@ body{
   border: 10px solid rgb(0,186,0);
   display: grid;
   grid-template-columns: 0.5fr 2.0fr 0.5fr 2.0fr 0.5fr 2.0fr 0.5fr;
-  grid-template-rows: 0.3fr 2.0fr 0.2fr 2.0fr 0.3fr;
+  grid-template-rows: 0.2fr 2.1fr 0.2fr 2.1fr 0.2fr;
   grid-template-areas:
     ". . . . . . ."
     ". product-1 . product-2 . product-3 ."
@@ -165,7 +172,7 @@ body{
 
 .p{
   width:100%;
-  height:100%;
+  height:90%;
 }
 
 
@@ -181,11 +188,11 @@ body{
         <div class="top">
           <div class="logo">
             <div class="sprout">
-            <img src="Sprout-Logo.png" alt="logo" width="400" height="150"></div> 
+            <img src="Sprout-Logo.png" alt="logo" width="510" height="160"></div> 
           </div>
           <div class="button">
             <div class="fruit">
-                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_wRc90BrxiIP7TmJ85tRyrzunB26b68Lm" class="bt">Fruit Seeds</a></div>
+                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_wRc90BrxiIP7TmJ85tRyrzunB26b68Lm" class="bt" >Fruit Seeds</a></div>
             
             <div class="Veggie">
                 <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_wRc90BrxiIP7TmJ85tRyrzunB26b68Lm" class="bt">Vegetable Seeds</a></div>
@@ -200,7 +207,7 @@ body{
 
           <div class="cart">
             <div class="icon"></div>
-            <img src="cart.png" alt="cart" width="70" height="70"></div>
+            <img src="cart-01.png" alt="cart" width="110px" height="150px"></div>
         </div>
 
         <div class="bottom">
