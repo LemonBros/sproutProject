@@ -3,8 +3,9 @@ from livereload import Server
 
 cart = Flask(__name__)
 
-@cart.route("/")
-def index():
+
+@cart.route("/cart")
+def index1():
     data = [
         {
             'n':1,
@@ -22,8 +23,8 @@ def index():
         }
 
     ]
-
     return render_template("cart.html", members=data)
+
 
 if __name__ == "__main__":
     server = Server(cart.wsgi_app)
