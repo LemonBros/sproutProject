@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename='styles/cart.css')}}>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping cart</title>
+</head>
+<body>
+    <div class="top">
+        <img class="left" width='auto' height='100' src="{{url_for('static', filename='image/Sprout-Logo.png')}}" alt="sprout">
+        <img class="right" width='auto' height='50' src="{{url_for('static', filename='image/cart-01.png')}}" alt="cart">
+    </div>
+    <main>
+        <div class="order">
+            <div class="header">Cart</div>
+            <div>N</div>
+            <div>Description</div>
+            <div>Price, $</div>
+            <div>Quantity</div>
+            <div>Cost, $</div>
+            <div class="option"></div>
+
+            {% for item in members: %}
+            <div>{{ item.n }}</div>
+            <div>{{ item.name }}</div>
+            <div>{{ item.price }}</div>
+            <div><input type="number" value={{ item.qty }} min="1" class="quantity-field"></div>
+            <div>{{ item.cost }}</div>
+            <div>
+                <button class="btnRemove">Remove</button>
+            </div>
+            {% endfor %}
+
+            <div class="total">
+                <div>Total</div>
+                <div>
+                    <button class="btnCheckout">Checkout</button>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+</body>
+</html>
