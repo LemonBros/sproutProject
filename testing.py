@@ -25,7 +25,10 @@ def index1():
     ]
     return render_template("cart.html", members=data)
 
+@cart.route("/checkout")
+def index2():
 
+    return render_template("checkout.html")
 if __name__ == "__main__":
     server = Server(cart.wsgi_app)
     server.watch('templates/*.html')
