@@ -1,11 +1,15 @@
 from flask import Flask, render_template
 from livereload import Server
 
-cart = Flask(__name__)
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template("sproutHomepage/home.html")
 
 
-@cart.route("/cart")
-def index1():
+@app.route("/cart")
+def cart():
     data = [
         {
             'n':1,
@@ -25,12 +29,12 @@ def index1():
     ]
     return render_template("cart.html", members=data)
 
-@cart.route("/checkout")
-def index2():
-
+@app.route("/checkout")
+def checkout():
     return render_template("checkout.html")
+
 if __name__ == "__main__":
-    server = Server(cart.wsgi_app)
+    server = Server(app.wsgi_app)
     server.watch('templates/*.html')
     server.watch('static/styles/*.css')
     server.serve(port=5555)
