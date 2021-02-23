@@ -1,6 +1,6 @@
 #import flask
 from flask import Flask
-
+from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy 
 from flask_migrate import Migrate
 
@@ -9,7 +9,7 @@ from config import Config
 
 #initalize the application
 app = Flask(__name__, static_folder='static')
-
+login = LoginManager(app)
 #setting up configuration for the Flask application 
 app.config.from_object(Config)
 
