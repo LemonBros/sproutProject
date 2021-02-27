@@ -1,1 +1,0 @@
-from app.model.shoe import *
