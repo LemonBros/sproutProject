@@ -1,4 +1,4 @@
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, user_logged_out
 from app.model.login import User, LoginForm
 from flask import render_template, redirect, url_for
 
@@ -13,7 +13,7 @@ class LoginController(object):
                 flash('Invalid username or password')
                 return redirect(url_for('login'))
             login_user(user, remember=form.remember_me.data)
-            return redirect(url_for('index'))
+            return redirect(url_for('home'))
         return render_template('login/login.html', title='Sign In', form=form)
 
 login_controller = LoginController()

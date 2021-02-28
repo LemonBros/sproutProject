@@ -10,6 +10,7 @@ from config import Config
 #initalize the application
 app = Flask(__name__, static_folder='static')
 login = LoginManager(app)
+login.Login_view = 'home'
 #setting up configuration for the Flask application 
 app.config.from_object(Config)
 

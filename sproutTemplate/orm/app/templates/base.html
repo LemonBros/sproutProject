@@ -42,13 +42,15 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('home') }}">Fruit Seeds</a>
               </li>
-              {% if current_user.is_anonymous%}
+              {% if current_user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-                </li>
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                    <li><p>{{ current_user.username }}</p></li>
+                    </li>
               {% else %}
-                <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('home') }}">Logout</a>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+              </li>
                 </li>
               {% endif %}
               </ul>
