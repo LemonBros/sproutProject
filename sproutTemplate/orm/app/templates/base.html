@@ -27,6 +27,7 @@
           <a href="{{ url_for('home') }}"><img src="{{url_for('static', filename='images/Sprout-Logo.png')}}" alt="sprout_logo" style="width:350px;"></a> 
       </div>
 
+
       <div class = "container" style="margin-top:25px">
           <nav class="navbar navbar-expand-sm bg-success navbar-dark">
               <ul class="navbar-nav">
@@ -34,22 +35,35 @@
                   <a class="nav-link" href="{{ url_for('home') }}">Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('home') }}">Flower Seeds</a>
+                  <a class="nav-link" href="{{ url_for('flower') }}">Flower Seeds</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('home') }}">Vegetable Seeds</a>
+                  <a class="nav-link" href="{{ url_for('vegetable') }}">Vegetable Seeds</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('home') }}">Fruit Seeds</a>
+                  <a class="nav-link" href="{{ url_for('fruit') }}">Fruit Seeds</a>
               </li>
-              {% if current_user.is_authenticated %}
+
+              {%if current_user.is_authenticated and current_user.username == "admin" %}
+              <li>
+                  <a class="nav-link" href="{{ url_for('admin') }}">admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                <p>{{ current_user.username }}</p>
+              </li>
+
+              {% elif current_user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-                    <li><p>{{ current_user.username }}</p></li>
+                    <p>{{ current_user.username }}</p>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"><img src="{{url_for('static', filename='images/cart-01.png')}}" alt="cart" style="width:50px;"></a> 
                     </li>
               {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-link" href="{{ url_for('login') }}">Login</a> 
               </li>
                 </li>
               {% endif %}
