@@ -59,7 +59,7 @@
                     <p>{{ current_user.username }}</p>
                     </li>
                     <li class="nav-item">
-                        <a href="#"><img src="{{url_for('static', filename='images/cart-01.png')}}" alt="cart" style="width:50px;"></a> 
+                        <a href="{{ url_for('cart') }}"><img src="{{url_for('static', filename='images/cart-01.png')}}" alt="cart" style="width:50px;"></a> 
                     </li>
               {% else %}
               <li class="nav-item">
