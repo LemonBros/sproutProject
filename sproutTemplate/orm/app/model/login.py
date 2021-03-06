@@ -5,6 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
 from app import login
+from flask import flash
 
 
 @login.user_loader
@@ -12,7 +13,7 @@ def user_loader(id):
     user = User.get(id)
     if user is None:
         flash('You have been automatically logged out')
-        User.update()
+        # user.update()
     return User.query.get(int(id))
 
 class User(UserMixin, db.Model):

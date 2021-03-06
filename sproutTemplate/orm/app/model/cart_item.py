@@ -21,7 +21,7 @@ class CartItem(db.Model):
 
     @staticmethod
     def get_for_user(user_id):
-        return CartItem.query.filter_by(user_id == user_id).all()
+        return CartItem.query.filter_by(user_id = user_id).all()
 
     @staticmethod
     def delete(id):

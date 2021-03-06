@@ -12,9 +12,11 @@ class CartController:
             return redirect(url_for('login'))
 
     @staticmethod
-    def add(seed_id):
+    def add(seed_id, quantity):
         if current_user.is_authenticated:
             item = CartItem()
             item.seed_id = seed_id
             item.user_id = current_user.id
+            item.quantity = quantity
             item.save()
+        return {"reply": "ololoshenki!"}
