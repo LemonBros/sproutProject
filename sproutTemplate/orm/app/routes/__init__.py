@@ -8,3 +8,4 @@ import app.routes.vegetable
 import app.routes.admin
 import app.routes.fruit_product_1
 import app.routes.fruit_product_2
+import app.routes.stripe
