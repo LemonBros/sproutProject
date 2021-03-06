@@ -1,4 +1,4 @@
-from app import db#, login, seed
+from app import db
 from app.model.login import User
 from app.model.seed import Seed
 from flask_wtf import FlaskForm
