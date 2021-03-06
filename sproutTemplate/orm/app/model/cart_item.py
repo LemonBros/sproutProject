@@ -1,4 +1,4 @@
-from app import db
+from app import db, app
 from app.model.login import User
 from app.model.seed import Seed
 from flask_wtf import FlaskForm
@@ -11,7 +11,7 @@ class CartItem(db.Model):
     quantity = db.Column(db.Integer, index=True)
 
     def __repr__(self):
-        return '<Number{}, Name {}, Type {}, Price {}, Quantity {}>'.format(self.id, self.name, self.seed_type, self.price, self.quantity)
+        return '<User id {}, seed id {}, quantity {}>'.format(self.user_id, self.seed_id, self.quantity)
     
     def save(self):
     #     #saving the shoe, insert row into Shoe table
@@ -21,7 +21,10 @@ class CartItem(db.Model):
 
     @staticmethod
     def get_for_user(user_id):
-        return CartItem.query.filter_by(user_id = user_id).all()
+        items = CartItem.query.filter_by(user_id = user_id).all()
+        result = [{'user_id': item.user_id, 'seed_id': item.seed_id, 'quantity': item.quantity} for item in items]
+        app.logger.error("items: {}".format(result))
+        return result
 
     @staticmethod
     def delete(id):

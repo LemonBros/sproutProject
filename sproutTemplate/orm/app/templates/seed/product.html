@@ -9,8 +9,8 @@
                 document.getElementById("demo").innerHTML = "Hello World";
                 var seed_id = 4;
                 var quantity = 10;
-                //const response = await fetch(`{{url_for('add_to_cart')}}/?seed_id=${seed_id}&quantity=${quantity}`, {
-                    const response = await fetch(`{{url_for('add_to_cart')}}`, {
+                const response = await fetch(`{{url_for('add_to_cart')}}?seed_id=${seed_id}&quantity=${quantity}`, {
+                    //const response = await fetch(`{{url_for('add_to_cart')}}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

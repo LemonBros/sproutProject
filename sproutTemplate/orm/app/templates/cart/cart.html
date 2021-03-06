@@ -11,6 +11,7 @@
         <div class="option"></div>
 
         {% for item in members: %}
+        <!--
         <div>{{ item.n }}</div>
         <div>{{ item.name }}</div>
         <div>{{ item.price }}</div>
@@ -19,6 +20,10 @@
         <div>
             <button class="btnRemove">Remove</button>
         </div>
+        -->
+        <div>{{ item.user_id }}</div>
+        <div>{{ item.seed_id }}</div>
+        <div>{{ item.quantity }}</div>
         {% endfor %}
 
         <div class="total">

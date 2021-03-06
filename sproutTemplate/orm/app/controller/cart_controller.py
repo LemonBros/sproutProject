@@ -19,4 +19,5 @@ class CartController:
             item.user_id = current_user.id
             item.quantity = quantity
             item.save()
+            return {"reply": "oh yis"}
         return {"reply": "ololoshenki!"}
