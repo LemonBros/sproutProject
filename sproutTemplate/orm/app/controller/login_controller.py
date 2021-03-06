@@ -1,6 +1,6 @@
 from flask_login import current_user, login_user, user_logged_out
 from app.model.login import User, LoginForm
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash
 
 class LoginController(object):
     def login(self):

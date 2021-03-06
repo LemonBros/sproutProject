@@ -1,7 +1,29 @@
 {% extends "base.html" %}
-
-
 {% block content %}
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello World";
+        }
+        function addItem(){
+            const userAction = async () => {
+                document.getElementById("demo").innerHTML = "Hello World";
+                var seed_id = 4;
+                var quantity = 10;
+                const response = await fetch(`{{url_for('add_to_cart')}}?seed_id=${seed_id}&quantity=${quantity}`, {
+                    //const response = await fetch(`{{url_for('add_to_cart')}}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const myJson = await response.json(); //extract JSON from the http response
+                // do something with myJson
+                document.getElementById("demo").innerHTML = myJson["reply"];
+            }
+            userAction()
+        }
+    </script>
+    <p id="demo">LOL</p>
     <div class="container-xxl">
         <div class="row justify-content-center">
             <div class="col-5"><img src="{{url_for('static', filename='images/strawberry.jpg')}}"></div>  
@@ -77,7 +99,7 @@
                      
                     </tbody>
                   </table>
-                  <button type="submit" class="btn btn-secondary btn-lg">Add to Cart</button>
+                  <button type="submit" onclick="addItem()" class="btn btn-secondary btn-lg">Add to Cart!</button>
             </div>  
     </div>
     </div>

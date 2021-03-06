@@ -6,6 +6,7 @@ import app.routes.flower
 import app.routes.fruit
 import app.routes.vegetable
 import app.routes.admin
+import app.routes.cart
 import app.routes.fruit_product_1
 import app.routes.fruit_product_2
 import app.routes.stripe
