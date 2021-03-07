@@ -177,6 +177,12 @@ body{
 
 </style>
 
+{% for item in inventory: %}
+
+<a href="{{ url_for('product') }}?id={{ item.id }}">{{ item.name }}</a>
+
+{% endfor %}
+
 {% if seed_type == "flower" %}
         <div class="bottom">
           <div class="products">

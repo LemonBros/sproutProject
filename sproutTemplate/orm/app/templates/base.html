@@ -35,13 +35,13 @@
                   <a class="nav-link" href="{{ url_for('home') }}">Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('flower') }}">Flower Seeds</a>
+                  <a class="nav-link" href="{{ url_for('gallery') }}?seed_type=Flower">Flower Seeds</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('vegetable') }}">Vegetable Seeds</a>
+                  <a class="nav-link" href="{{ url_for('gallery') }}?seed_type=Vegetable">Vegetable Seeds</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('fruit') }}">Fruit Seeds</a>
+                  <a class="nav-link" href="{{ url_for('gallery') }}?seed_type=Fruit">Fruit Seeds</a>
               </li>
 
               {%if current_user.is_authenticated and current_user.username == "admin" %}

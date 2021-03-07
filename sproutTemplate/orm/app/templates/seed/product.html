@@ -7,18 +7,21 @@
         function addItem(){
             const userAction = async () => {
                 document.getElementById("demo").innerHTML = "Hello World";
-                var seed_id = 4;
-                var quantity = 10;
-                const response = await fetch(`{{url_for('add_to_cart')}}?seed_id=${seed_id}&quantity=${quantity}`, {
-                    //const response = await fetch(`{{url_for('add_to_cart')}}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-                const myJson = await response.json(); //extract JSON from the http response
-                // do something with myJson
-                document.getElementById("demo").innerHTML = myJson["reply"];
+                var seed_id = {{ product.id }};
+                var qtyElt = document.querySelectorAll('[aria-label="quantity"]')[0];
+                var quantity = parseInt(qtyElt.options[qtyElt.selectedIndex].text, 10); 
+                if(quantity > 0) {
+                    const response = await fetch(`{{url_for('add_to_cart')}}?seed_id=${seed_id}&quantity=${quantity}`, {
+                        //const response = await fetch(`{{url_for('add_to_cart')}}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    const myJson = await response.json(); //extract JSON from the http response
+                    // do something with myJson
+                    document.getElementById("demo").innerHTML = myJson["reply"];
+                }
             }
             userAction()
         }
@@ -26,6 +29,7 @@
     <p id="demo">LOL</p>
     <div class="container-xxl">
         <div class="row justify-content-center">
+            <h2>{{ product.name }}</h2>
             <div class="col-5"><img src="{{url_for('static', filename='images/strawberry.jpg')}}"></div>  
             <div class="col-5"><b>Description:</b><br>
                 {% if seed_type == 'strawberry' %}
