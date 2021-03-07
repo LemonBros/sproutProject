@@ -17,7 +17,7 @@ class Seed(db.Model):
     quantity = db.Column(db.Integer, index=True)
 
     def __repr__(self):
-        return '<Name {}, Type {}, Price {}, Quantity {}>'.format(self.name, self.seed_type, self.price, self.quantity)
+        return '<Name {}, Type {}, Price {}, Quantity {}, Id {}>'.format(self.name, self.seed_type, self.price, self.quantity, self.id)
     
     #method to save the shoe
     def save(self):

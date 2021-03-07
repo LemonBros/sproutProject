@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{{url_for ('static', filename='styles/cart.css')}}">
+</head>
 <main>
     <div class="order">
         <div class="header">Cart</div>
@@ -11,7 +14,7 @@
         <div class="option"></div>
 
         {% for item in members: %}
-        <!--
+        
         <div>{{ item.n }}</div>
         <div>{{ item.name }}</div>
         <div>{{ item.price }}</div>
@@ -20,10 +23,7 @@
         <div>
             <button class="btnRemove">Remove</button>
         </div>
-        -->
-        <div>{{ item.user_id }}</div>
-        <div>{{ item.seed_id }}</div>
-        <div>{{ item.quantity }}</div>
+        
         {% endfor %}
 
         <div class="total">
