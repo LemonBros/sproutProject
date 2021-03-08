@@ -1,5 +1,4 @@
 from app import db
-from app.model.cart_item import cart_item
 
 class Seed(db.Model):
 
@@ -18,7 +17,7 @@ class Seed(db.Model):
     quantity = db.Column(db.Integer, index=True)
 
     def __repr__(self):
-        return '<Name {}, Type {}, Price {}, Quantity {}>'.format(self.name, self.seed_type, self.price, self.quantity)
+        return '<Name {}, Type {}, Price {}, Quantity {}, Id {}>'.format(self.name, self.seed_type, self.price, self.quantity, self.id)
     
     #method to save the shoe
     def save(self):
@@ -33,13 +32,21 @@ class Seed(db.Model):
     #     #get all the shoes from the database
         return Seed.query.all()
 
+    @staticmethod
+    def get_by_type(seed_type):
+        data = db.session.query(Seed.id, Seed.name, Seed.price, Seed.quantity).filter(Seed.seed_type == seed_type).all()
+        inventory = [{'id': item[0], 'name': item[1], 'price': item[2], 'qty': item[3]} for item in data]
+        return inventory
+
     def delete(id):
         seed = Seed.get(id=id)
         db.session.delete(seed)
         db.session.commit()
     
+    @staticmethod
     def get(id):
-        return db.session.query(Seed).filter(Seed.id == id).first()
+        seed = db.session.query(Seed).filter(Seed.id == id).first()
+        return {'id': seed.id, 'name': seed.name, 'price': seed.price, 'qty': seed.quantity}
     
     def update(self):
         db.session.commit()

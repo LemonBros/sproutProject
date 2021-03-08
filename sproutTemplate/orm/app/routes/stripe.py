@@ -27,8 +27,8 @@ def paypage():
 
 @app.route('/success')
 def success():
-    cart_user = db.session.query(CartItem).filter(CartItem.user_id = id).first()
-    Seed.minus_quantaty(cart_user.quantaty)
+    cart_user = db.session.query(CartItem).filter(CartItem.user_id=id).first()
+    Seed.minus_quantaty(cart_user.seed_id)
     return render_template('/checkout/success.html')
 
 

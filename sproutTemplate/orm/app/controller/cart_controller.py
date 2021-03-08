@@ -1,6 +1,7 @@
 from flask import render_template, redirect
 from app.model.cart_item import CartItem
 from flask_login import current_user
+from app.model.cart_item import CartItem
 
 class CartController:
 
@@ -21,3 +22,7 @@ class CartController:
             item.save()
             return {"reply": "oh yis"}
         return {"reply": "ololoshenki!"}
+
+    def delete(seed_id):
+        CartItem.delete(seed_id)
+        return redirect(url_for("get_cart"))

@@ -1,32 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-    <script>
-        function myFunction() {
-            document.getElementById("demo").innerHTML = "Hello World";
-        }
-        function addItem(){
-            const product = document.querySelector('#product');
-            const userAction = async () => {
-                document.getElementById("demo").innerHTML = "Hello World";
-                var seed_id = document.getElementsByClassName("title");
-                var quantity = product.dataset.value;
-                const response = await fetch(`{{url_for('add_to_cart')}}?seed_id=${seed_id}&quantity=${quantity}`, {
-                    //const response = await fetch(`{{url_for('add_to_cart')}}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-                const myJson = await response.json(); //extract JSON from the http response
-                // do something with myJson
-                document.getElementById("demo").innerHTML = myJson["reply"];
-            }
-            userAction()
-        }
+    <script
+        type="text/js" src="{{url_for('static', filename = 'product.js')}}" >
     </script>
     <p id="demo">LOL</p>
     <div class="container-xxl">
         <div class="row justify-content-center">
+            <h2>{{ product.name }}</h2>
             <div class="col-5"><img src="{{url_for('static', filename='images/strawberry.jpg')}}"></div>  
             <div class="col-5"><b>Description:</b><br>
                 {% if seed_type == 'strawberry' %}
