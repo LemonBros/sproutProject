@@ -1,4 +1,5 @@
 from app import db
+from app.model.cart_item import cart_item
 
 class Seed(db.Model):
 
@@ -41,4 +42,8 @@ class Seed(db.Model):
         return db.session.query(Seed).filter(Seed.id == id).first()
     
     def update(self):
+        db.session.commit()
+
+    def minus_quantaty(self, num):
+        self.quantity -= num
         db.session.commit()

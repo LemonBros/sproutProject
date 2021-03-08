@@ -2,6 +2,9 @@ from app import app
 import stripe
 from flask import render_template, jsonify
 import os
+from app.model.seed import Seed
+from app.model.cart_item import CartItem
+from app import db
 
 
 @app.route('/checkout')
@@ -24,6 +27,8 @@ def paypage():
 
 @app.route('/success')
 def success():
+    cart_user = db.session.query(CartItem).filter(CartItem.user_id = id).first()
+    Seed.minus_quantaty(cart_user.quantaty)
     return render_template('/checkout/success.html')
 
 

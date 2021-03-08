@@ -5,10 +5,11 @@
             document.getElementById("demo").innerHTML = "Hello World";
         }
         function addItem(){
+            const product = document.querySelector('#product');
             const userAction = async () => {
                 document.getElementById("demo").innerHTML = "Hello World";
-                var seed_id = 4;
-                var quantity = 10;
+                var seed_id = document.getElementsByClassName("title");
+                var quantity = product.dataset.value;
                 const response = await fetch(`{{url_for('add_to_cart')}}?seed_id=${seed_id}&quantity=${quantity}`, {
                     //const response = await fetch(`{{url_for('add_to_cart')}}`, {
                     method: 'POST',
@@ -81,17 +82,17 @@
                       <tr>
                         <th scope="row">1 Package (10 seeds)</th>
                         <td>$9.99</td>
-                        <td><select class="form-select" aria-label="quantity">
+                        <td><select id="package" class="form-select" aria-label="quantity">
                             <option selected value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
-                            <option value="3">4</option>
-                            <option value="3">5</option>
-                            <option value="3">6</option>
-                            <option value="3">7</option>
-                            <option value="3">8</option>
-                            <option value="3">9</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
                           </select>
                         </td>
                       </tr>
