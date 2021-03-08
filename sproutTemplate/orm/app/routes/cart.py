@@ -12,3 +12,7 @@ def add_to_cart():
     seed = request.args.get('seed_id')
     quantity = request.args.get('quantity', 1)
     return CartController.add(seed, quantity)
+
+@app.route("/cart_item", methods=["DELETE"])
+def delete_item():
+    return 

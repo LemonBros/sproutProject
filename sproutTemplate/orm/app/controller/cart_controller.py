@@ -21,3 +21,9 @@ class CartController:
             item.save()
             return {"reply": "oh yis"}
         return {"reply": "ololoshenki!"}
+
+    @staticmethod
+    def delete_item(seed_id, user_id):
+        if current_user.is_authenticated:
+            item = CartItem()
+            
