@@ -50,3 +50,7 @@ class Seed(db.Model):
     
     def update(self):
         db.session.commit()
+    
+    def get_qty(id):
+        seed = db.session.query(Seed).filter(Seed.id == id).first()
+        return seed.quantity

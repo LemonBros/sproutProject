@@ -22,7 +22,7 @@ class CartItem(db.Model):
 
     @staticmethod
     def get_for_user(user_id):
-        items = db.session.query(CartItem.quantity, Seed.name, Seed.price).filter(CartItem.user_id == user_id).filter(CartItem.seed_id == Seed.id).all()
+        items = db.session.query(CartItem.quantity, CartItem.seed_id, Seed.name, Seed.price).filter(CartItem.user_id == user_id).filter(CartItem.seed_id == Seed.id).all()
         
         '''
         result0 = []
@@ -34,19 +34,28 @@ class CartItem(db.Model):
 
         # list comprehension.
         # enumerate() is a function used to add indices to list elements
-        result = [{'qty': item[0], 'name': item[1], 'price': item[2], 'cost': item[0]*item[2], 'n': i+1} for i, item in enumerate(items)]
+        result = [{'qty': item[0],'id':item[1], 'name': item[2], 'price': item[3], 'cost': item[0]*item[3], 'n': i+1} for i, item in enumerate(items)]
         app.logger.error("result: {}".format(result))
         return result
 
     @staticmethod
     def delete_row(user_n, item_removed):
-        cart = session.query(CartItem).filter(user_n=user_id, item_removed=seed_id).all()
-        # CartItem.query(user_n=user_id, item_removed=seed_id).first()
+        cart = db.session.query(CartItem).filter(CartItem.user_id == user_n).filter(CartItem.seed_id==item_removed).first()
         db.session.delete(cart)
         db.session.commit()
     
-    def update(self):
+    @staticmethod
+    def update_row(user_n, item_removed, qty):
+        cart = db.session.query(CartItem).filter(CartItem.user_id == user_n).filter(CartItem.seed_id==item_removed).first()
+        cart.update_quantity(qty)
         db.session.commit()
 
-class CartForm(FlaskForm):
-    pass
+    def update_quantity(self, qty):
+        self.quantity = qty
+
+    def clear_on_logout(userid):
+        db.session.query(CartItem).filter(CartItem.user_id == userid).\
+        delete(synchronize_session=False)
+        db.session.commit()
+
+

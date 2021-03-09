@@ -40,3 +40,8 @@ button{
     display:grid;
 
 }
+
+#qty-update,
+#update-btn{
+  display: inline-block;
+}

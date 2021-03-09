@@ -28,13 +28,16 @@
         <div>{{ item.n }}</div>
         <div>{{ item.name }}</div>
         <div>{{ item.price }}</div>
-        <div><input type="number" value={{ item.qty }} min="1" class="quantity-field"></div>
-        <div>{{ item.cost }}</div>
+        <form method="post" action="{{url_for('removed', item_removed = item.id)}}">
         <div>
-            <!-- <button class="btnRemove{{ item.n }}" onclick="remButton({{ item.n }})">Remove</button> -->
-            <button class="btnRemove{{ item.n }}" onclick="{{ url_for('get_cart', user_n = current_user.id, item_removed = item.id) }}">Remove</button>
-
+            <input id="qty-update" type="number" name="qty" value={{ item.qty }} min="0" max="99" class="quantity-field">
         </div>
+        <div>   
+            <input id="update-btn" type="submit" name="delete" value="Update"> 
+        </div>
+        </form>
+        <div>{{ item.cost }}</div>
+        <div class="option"></div>
         
         {% endfor %}
 
