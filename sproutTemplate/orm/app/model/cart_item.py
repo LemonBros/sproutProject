@@ -28,7 +28,7 @@ class CartItem(db.Model):
         result0 = []
         for i in range(len(items)):
             item = items[i]
-            result0.append({'quantity': item[0], 'name': item[1], 'price': item[2], 'cost': item[0]*item[2], 'n': i+1})
+            result.append({'quantity': item[0], 'name': item[1], 'price': item[2], 'cost': item[0]*item[2], 'n': i+1})
         app.logger.error("result0: {}".format(result0))
         '''
 
@@ -39,9 +39,10 @@ class CartItem(db.Model):
         return result
 
     @staticmethod
-    def delete(id):
-        seed = Seed.get(id=id)
-        db.session.delete(seed)
+    def delete_row(user_n, item_removed):
+        cart = session.query(CartItem).filter(user_n=user_id, item_removed=seed_id).all()
+        # CartItem.query(user_n=user_id, item_removed=seed_id).first()
+        db.session.delete(cart)
         db.session.commit()
     
     def update(self):

@@ -31,7 +31,9 @@
         <div><input type="number" value={{ item.qty }} min="1" class="quantity-field"></div>
         <div>{{ item.cost }}</div>
         <div>
-            <button class="btnRemove{{ item.n }}" onclick="remButton({{ item.n }})">Remove</button>
+            <!-- <button class="btnRemove{{ item.n }}" onclick="remButton({{ item.n }})">Remove</button> -->
+            <button class="btnRemove{{ item.n }}" onclick="{{ url_for('get_cart', user_n = current_user.id, item_removed = item.id) }}">Remove</button>
+
         </div>
         
         {% endfor %}

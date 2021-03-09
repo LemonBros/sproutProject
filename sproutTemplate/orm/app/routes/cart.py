@@ -13,6 +13,7 @@ def add_to_cart():
     quantity = request.args.get('quantity', 1)
     return CartController.add(seed, quantity)
 
-@app.route("/cart_item", methods=["DELETE"])
-def delete_item():
-    return 
+@app.route("/get_cart/<user_n>/<item_removed>", methods=['DELETE', 'POST', 'GET'])
+def delete(user_n, item_removed):
+    CartController.delete(user_n, item_removed)
+    return CartController.get_all()

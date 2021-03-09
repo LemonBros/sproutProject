@@ -23,7 +23,6 @@ class CartController:
         return {"reply": "ololoshenki!"}
 
     @staticmethod
-    def delete_item(seed_id, user_id):
-        if current_user.is_authenticated:
-            item = CartItem()
+    def delete(user_n, item_removed):
+        CartItem.delete_row(user_n, item_removed)
             
