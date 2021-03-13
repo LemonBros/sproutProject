@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, SelectField
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, InputRequired
 from app.model.seed import Seed
 
 class SeedForm(FlaskForm):
@@ -14,6 +14,11 @@ class SeedForm(FlaskForm):
         seed = Seed.query.filter_by(name=seedname.data).first()
         if seed is not None:
             raise ValidationError('Please use a different seed name.')
+
+class SeedUpdate(FlaskForm):
+    seedname = SelectField('Seed Name', coerce=int, validators=[DataRequired()])
+    quantity = IntegerField('Quantity', validators=[DataRequired()])
+    submit = SubmitField('Update')
 
     
 

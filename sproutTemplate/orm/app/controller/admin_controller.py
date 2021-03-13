@@ -2,7 +2,7 @@ from app import db
 from flask import render_template, redirect, url_for, flash
 from flask_login import current_user, login_user
 from app.model.seed import Seed
-from app.model.seedform import SeedForm
+from app.model.seedform import SeedForm, SeedUpdate
 
 
 class AdminController():
@@ -17,5 +17,19 @@ class AdminController():
             return redirect(url_for('admin'))
         seeddisplay = Seed.get_all()
         return render_template('admin/admin.html', title='Admin', form=form, seeddisplay=seeddisplay)
+    
+    def seedupdate(self):    
+        all_seeds = db.session.query(Seed).order_by('name').all()
+        seed_group_name = [(i.id, i.name) for i in all_seeds]
+        form = SeedUpdate()
+        form.seedname.choices = seed_group_name
+        if form.validate_on_submit():
+            Seed.adminupdate(seedname=form.seedname.data, quantity=form.quantity.data)
+            flash('Added Quantity to Seed')
+            return redirect(url_for('adminupdate'))
+        
+        seeddisplay = Seed.get_all()
+        return render_template('admin/adminupdate.html', title='Admin', seedupdate=form, seeddisplay=seeddisplay)
+
 
 admin_controller = AdminController()
