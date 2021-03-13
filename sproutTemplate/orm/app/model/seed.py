@@ -54,3 +54,13 @@ class Seed(db.Model):
     def get_qty(id):
         seed = db.session.query(Seed).filter(Seed.id == id).first()
         return seed.quantity
+    
+    @staticmethod
+    def adminupdate(seedname, quantity):
+        adminseed = db.session.query(Seed).filter(Seed.id == seedname).first()
+        adminseed.update_quantity(quantity)
+    
+    def update_quantity(self, quantity):
+        self.quantity += quantity
+        db.session.commit()
+    

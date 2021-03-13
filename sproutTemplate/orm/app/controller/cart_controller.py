@@ -26,7 +26,7 @@ class CartController:
                 item.quantity = quantity
                 item.save()
             return {"reply": "Successfully Added To Cart"}
-        return {"reply": "ololoshenki!"}
+        return {"reply": ""}
 
     @staticmethod
     def delete(user_n, item_removed):
