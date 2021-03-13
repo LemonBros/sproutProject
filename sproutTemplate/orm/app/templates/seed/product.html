@@ -100,6 +100,8 @@ function addItem(){
                   </table>
                   {%if current_user.is_authenticated %}
                   <button type="submit" onclick="addItem()" class="btn btn-secondary btn-lg">Add to Cart!</button>
+                  {% else %}
+                  <a href="{{ url_for('login') }}">Login to Purchase</a> 
                   {% endif %}
                   <p id="demo"></p>
                   
