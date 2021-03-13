@@ -54,3 +54,8 @@ class Seed(db.Model):
     def get_qty(id):
         seed = db.session.query(Seed).filter(Seed.id == id).first()
         return seed.quantity
+
+    def minus_qty(self, quantity):
+        self.quantity -= quantity
+        db.session.commit()
+    

@@ -2,6 +2,8 @@
 {% block content %}
 <head>
     <link rel="stylesheet" href="{{url_for ('static', filename='styles/cart.css')}}">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{url_for('static', filename='scripts/stripe/index.js')}}"></script>
 </head>
 
 <main>
@@ -44,7 +46,7 @@
         <div class="total">
             <div>Total</div>
             <div>
-                <button class="btnCheckout">Checkout</button>
+                <button id="checkout-button">Checkout</button>
             </div>
         </div>
 

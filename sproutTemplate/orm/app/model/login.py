@@ -61,6 +61,11 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+    
+    def get_email(id):
+        user = User.get(id=id)
+        return user.email 
+
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
