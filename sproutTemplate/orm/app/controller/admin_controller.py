@@ -18,4 +18,5 @@ class AdminController():
         seeddisplay = Seed.get_all()
         return render_template('admin/admin.html', title='Admin', form=form, seeddisplay=seeddisplay)
 
+
 admin_controller = AdminController()

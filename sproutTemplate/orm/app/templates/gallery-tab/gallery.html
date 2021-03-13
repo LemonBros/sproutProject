@@ -1,71 +1,68 @@
 {% extends "base.html" %}
 {% block content %}
-<head>
-  <link rel="stylesheet" href="{{url_for ('static', filename='styles/gallery.css')}}">
-</head>
 
 {% for item in inventory: %}
-
 <a href="{{ url_for('product') }}?id={{ item.id }}">{{ item.name }}</a>
+
+<a href="{{ url_for('product') }}?id={{ item.id }}"> <img src="{{url_for('static', filename=item.imagePath)}}"class="p" alt="productImage" style="width:100%;"> </a>
 
 {% endfor %}
 
-{% if seed_type == "flower" %}
+<!-- {% if seed_type == "flower" %}
         <div class="bottom">
           <div class="products">
             <div class="product-1">
-                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="../static/image/grey.jpg"class="p" alt="product-1"></a></div>
+              <a href="{{ url_for('product') }}?id={{ item.id }}">{{ item.name }}</a>
+                    <img src="{{url_for('static', filename='images/giveMeImage.png')}}"class="p" alt="product-1"></a></div>
      
             <div class="product-2">
-                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="../static/image/grey.jpg" class="p" alt="product-2"></a></div>
+                <a href="{{ url_for('product2') }}">
+                    <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-2"></a></div>
          
             <div class="product-3">
-                <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-                    <img src="../static/image/grey.jpg" class="p" alt="product-3"></a></div>
+                <a href="{{ url_for('product3') }}">
+                    <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-3"></a></div>
   
           </div>
         </div>
-      </div>
+      
 {% elif seed_type == "vegetable" %}
   <div class="bottom">
     <div class="products">
       <div class="product-1">
-          <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-              <img src="../static/image/grey.jpg"class="p" alt="product-1"></a></div>
+          <a href="{{ url_for('product1') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}"class="p" alt="product-1"></a></div>
 
       <div class="product-2">
-          <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-              <img src="../static/image/grey.jpg" class="p" alt="product-2"></a></div>
+          <a href="{{ url_for('product2') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-2"></a></div>
   
       <div class="product-3">
-          <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-              <img src="../static/image/grey.jpg" class="p" alt="product-3"></a></div>
+          <a href="{{ url_for('product3') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-3"></a></div>
 
 
     </div>
   </div>
-  </div>
+
 
 {% elif seed_type == "fruit" %}
   <div class="bottom">
     <div class="products">
       <div class="product-1">
           <a href="{{ url_for('product1') }}">
-              <img src="../static/image/grey.jpg"class="p" alt="product-1"></a></div>
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}"class="p" alt="product-1"></a></div>
 
       <div class="product-2">
           <a href="{{ url_for('product2') }}">
-              <img src="../static/image/grey.jpg" class="p" alt="product-2"></a></div>
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-2"></a></div>
 
       <div class="product-3">
-          <a href="https://www.fluidui.com/editor/live/project/p_816BvNbXX7DAnZ3uWa3Cd2TwKpxmOiJw#x_CVBJkHtkaXEgkivRaoqNyQbEGp1TXUbd">
-              <img src="../static/image/grey.jpg" class="p" alt="product-3"></a></div>
+          <a href="{{ url_for('product3') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-3"></a></div>
 
     </div>
   </div>
-  </div>
-{% endif %}
 
+{% endif %} -->
 {% endblock %}

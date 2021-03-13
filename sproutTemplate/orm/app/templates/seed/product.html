@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <script>
+<script>
 function addItem(){
     const userAction = async () => {
         document.getElementById("demo").innerHTML = "Hello World";
@@ -22,52 +22,18 @@ function addItem(){
     }
     userAction()
 }
-    </script>
-    <p id="demo">LOL</p>
+</script>
+    <p id="demo">.....</p>
     <div class="container-xxl">
         <div class="row justify-content-center">
             <h2>{{ product.name }}</h2>
-            <div class="col-5"><img src="{{url_for('static', filename='images/strawberry.jpg')}}"></div>  
+            <div class="col-5"><img src="{{url_for('static', filename=product.imagePath)}}" alt="product" style="width:80%; height: 80%;"></div> 
             <div class="col-5"><b>Description:</b><br>
-                {% if seed_type == 'strawberry' %}
-                    {{ seed_info['strawberry'] }}
-                {% elif seed_type == 'berry' %}
-                    {{ seed_info['berry'] }}
-                {% else %}
-                    <h1>Error</h1>
-                {% endif %}
+                {{ seed_info[product.name] }}
             </div>  
         </div>
         <div class="row justify-content-center">
-            <div class="col-5"> 
-                <hr>
-                <h3>How To Grow</h3>
-                <ul class="list-unstyled">
-                    <li><b>Step 1</b>
-                        <ul>
-                            <li>Do This...</li>
-                            <li>Do That...</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 2</b>
-                        <ul>
-                            <li>Do This...</li>
-                            <li>Do That...</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 3</b>
-                        <ul>
-                            <li>Do This...</li>
-                            <li>Do That...</li>
-                        </ul>
-                    </li>
-                    <li><b>Step 4</b>
-                        <ul>
-                            <li>Do This...</li>
-                            <li>Do That...</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="col-5">   
             </div>  
             <div class="col-5">
                 <table class="table table-striped table-secondary table-hover">

@@ -1,6 +1,6 @@
 from app import app
 from app.model.cart_item import CartItem
-from app.controller.product_controller import get_product_quantity
+from app.controller.product_controller import ProductController
 from app.controller.cart_controller import CartController
 from flask import request, redirect, url_for, request, flash
 from flask_login import current_user
@@ -19,7 +19,7 @@ def add_to_cart():
 def removed(item_removed):
     user_n = current_user.id
     qty = request.form.get('qty', type=int)
-    seed_stock = get_product_quantity(item_removed)
+    seed_stock = ProductController.get_product_quantity(item_removed)
     if qty > seed_stock:
         flash('QTY error')
         return redirect(url_for('get_cart'))
