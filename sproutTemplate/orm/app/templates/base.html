@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/gallery.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       <style>
           .body {
               background-color: #C9FFD0;
@@ -17,11 +18,7 @@
       <title>Sprout</title>
     </head>
     <body class = "body">
-        <!-- <div>
-          Sprout: 
-          <a href="{{ url_for('home') }}">Home</a>
-          <a href="{{ url_for('home') }}">Login</a>
-          <a href="{{ url_for('home') }}">Logout</a> -->
+        
     
       <div class = "container" style="margin-top:25px">
           <a href="{{ url_for('home') }}"><img src="{{url_for('static', filename='images/Sprout-Logo.png')}}" alt="sprout_logo" style="width:350px;"></a> 
@@ -46,10 +43,13 @@
 
               {%if current_user.is_authenticated and current_user.username == "admin" %}
               <li>
-                  <a class="nav-link" href="{{ url_for('admin') }}">adminCreate</a>
+                  <a class="nav-link" href="{{ url_for('admin') }}">AdminCreate</a>
               </li>
               <li>
                 <a class="nav-link" href="{{ url_for('adminupdate') }}">AdminUpdate</a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ url_for('admindelete') }}">AdminDelete</a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -81,4 +81,5 @@
       </div>
           {% block content %}{% endblock %}
     </body>
+    
 </html>

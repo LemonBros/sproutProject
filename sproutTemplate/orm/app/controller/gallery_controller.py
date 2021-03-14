@@ -4,4 +4,7 @@ from app.model.seed import Seed
 class GalleryController:
     @staticmethod
     def get(seed_type):
-        return Seed.get_by_type(seed_type)
+        seeds = Seed.get_by_type(seed_type)
+        for item in seeds:
+            item['imagePath'] = "images/%s.png" % (item['name'])
+        return seeds

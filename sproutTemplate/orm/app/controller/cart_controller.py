@@ -1,7 +1,7 @@
 from flask import render_template, redirect
 from app.model.cart_item import CartItem
 from flask_login import current_user
-from app.controller.product_controller import get_product_quantity
+from app.controller.product_controller import ProductController
 from app import db
 
 class CartController:
@@ -15,7 +15,7 @@ class CartController:
 
     @staticmethod
     def add(seed_id, quantity):
-        seed_stock = get_product_quantity(seed_id)
+        seed_stock = ProductController.get_product_quantity(seed_id)
         if current_user.is_authenticated:
             if quantity > seed_stock:
                 return {"reply": "Quantity Error Stock Too Low"}

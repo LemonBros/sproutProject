@@ -20,6 +20,11 @@ class SeedUpdate(FlaskForm):
     quantity = IntegerField('Quantity', validators=[DataRequired()])
     submit = SubmitField('Update')
 
+class SeedDelete(FlaskForm):
+    seedname = SelectField('Seed Name', coerce=int, validators=[DataRequired()])
+    submit = SubmitField('Delete')
+
+
     
 
     

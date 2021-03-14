@@ -69,3 +69,9 @@ class Seed(db.Model):
         self.quantity += quantity
         db.session.commit()
     
+    @staticmethod
+    def admindelete(seedname):
+        admindeleteseed = db.session.query(Seed).filter(Seed.id==seedname).first()
+        db.session.delete(admindeleteseed)
+        db.session.commit()
+    

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Delete Seed</h1>
+    <form method="post">
+        {{ seeddelete.csrf_token }}   
+        <p>
+            {{ seeddelete.seedname.label }}<br>
+            {{ seeddelete.seedname(size=seeddelete.seedname.size) }}<br>
+            {% for error in seeddelete.seedname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        
+        <p> {{ seeddelete.submit() }}</p>
+    </form>
+
+    <p>{{ seeddisplay }}</p>
+{% endblock %}

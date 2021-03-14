@@ -12,3 +12,8 @@ def admin():
 @login_required
 def adminupdate():
     return admin_controller.seedupdate()
+
+@app.route('/admindelete', methods=['GET', 'POST'])
+@login_required
+def admindelete():
+    return admin_controller.seeddelete()
