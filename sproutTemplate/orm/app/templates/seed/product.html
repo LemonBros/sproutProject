@@ -3,7 +3,6 @@
 <script>
 function addItem(){
     const userAction = async () => {
-        document.getElementById("demo").innerHTML = "Hello World";
         var seed_id = {{ product.id }};
         var qtyElt = document.querySelectorAll('[aria-label="quantity"]')[0];
         var quantity = parseInt(qtyElt.options[qtyElt.selectedIndex].text, 10); 
@@ -22,8 +21,7 @@ function addItem(){
     }
     userAction()
 }
-</script>
-    <p id="demo">.....</p>
+    </script>
     <div class="container-xxl">
         <div class="row justify-content-center">
             <h2>{{ product.name }}</h2>
@@ -66,7 +64,12 @@ function addItem(){
                      
                     </tbody>
                   </table>
+                  {%if current_user.is_authenticated %}
                   <button type="submit" onclick="addItem()" class="btn btn-secondary btn-lg">Add to Cart!</button>
+                  {% else %}
+                  <a href="{{ url_for('login') }}">Login to Purchase</a> 
+                  {% endif %}
+                  <p id="demo"></p>
                   
             </div>  
     </div>

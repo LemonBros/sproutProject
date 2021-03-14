@@ -22,7 +22,7 @@
     
       <div class = "container" style="margin-top:25px">
           <a href="{{ url_for('home') }}"><img src="{{url_for('static', filename='images/Sprout-Logo.png')}}" alt="sprout_logo" style="width:350px;"></a> 
-      </div>
+      </div>    
 
 
       <div class = "container" style="margin-top:25px">
@@ -43,30 +43,38 @@
 
               {%if current_user.is_authenticated and current_user.username == "admin" %}
               <li>
-                  <a class="nav-link" href="{{ url_for('admin') }}">admin</a>
+                  <a class="nav-link" href="{{ url_for('admin') }}">AdminCreate</a>
               </li>
+              <li>
+                <a class="nav-link" href="{{ url_for('adminupdate') }}">AdminUpdate</a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ url_for('admindelete') }}">AdminDelete</a>
+            </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
               </li>
               <li>
-                <p id="adminUser">{{ current_user.username }}</p>
+                {{ current_user.username }}
               </li>
 
               {% elif current_user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                 </li>
-                 <li>
-                    <p id="customerUserName">{{ current_user.username }}</p>
+                <li>
+                    {{ current_user.username }}
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url_for('get_cart') }}"><img src="{{url_for('static', filename='images/cart-01.png')}}" alt="cart" id="cart_logo" style="width:50px;"></a> 
+                    <a href="{{ url_for('get_cart') }}"><img src="{{url_for('static', filename='images/cart-01.png')}}" alt="cart" style="width:30px;"></a> 
                 </li>
               {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('login') }}">Login</a> 
               </li>
-                </li>
+              <li>
+                <a class="nav-link" href="{{ url_for('registration') }}">Register</a>  
+              </li>  
               {% endif %}
               </ul>
           </nav>

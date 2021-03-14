@@ -7,3 +7,13 @@ from flask_login import login_required
 @login_required
 def admin():
     return admin_controller.seedregister()
+
+@app.route('/adminupdate', methods=['GET', 'POST'])
+@login_required
+def adminupdate():
+    return admin_controller.seedupdate()
+
+@app.route('/admindelete', methods=['GET', 'POST'])
+@login_required
+def admindelete():
+    return admin_controller.seeddelete()

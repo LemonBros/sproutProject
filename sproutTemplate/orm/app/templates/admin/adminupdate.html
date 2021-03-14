@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Add Seed Quantity</h1>
+    <form method="post">
+        {{ seedupdate.csrf_token }}   
+        <p>
+            {{ seedupdate.seedname.label }}<br>
+            {{ seedupdate.seedname(size=seedupdate.seedname.size) }}<br>
+            {% for error in seedupdate.seedname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ seedupdate.quantity.label }}<br>
+            {{ seedupdate.quantity(size=32) }}<br>
+            {% for error in seedupdate.quantity.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p> {{ seedupdate.submit() }}</p>
+    </form>
+
+    <p>{{ seeddisplay }}</p>
+{% endblock %}

@@ -30,8 +30,9 @@
             {{ form.password2(size=32) }}<br>
             {% for error in form.password2.errors %}
             <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+            {% endfor %}    
         </p>
         <p>{{ form.submit() }}</p>
     </form>
+    <p>Already a User? <a class="nav-link" href="{{ url_for('registration') }}">Login Here!</a></p>
 {% endblock %}
