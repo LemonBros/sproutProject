@@ -24,53 +24,55 @@ function addItem(){
     </script>
     <div class="container-xxl">
         <div class="row justify-content-center">
-            <h2>{{ product.name }}</h2>
-            <div class="col-5"><img src="{{url_for('static', filename=product.imagePath)}}" alt="product" style="width:80%; height: 80%;"></div> 
-            <div class="col-5"><b>Description:</b><br>
-                {{ seed_info[product.name] }}
+            <div class="col-4" align="right">
+                <img class="img-thumbnail" src="{{url_for('static', filename=product.imagePath)}}" alt="product" style="width:95%; height: auto; max-width:540px;margin-top:40px;">
+                <table class="table table-striped table-secondary table-hover" style="width:95%; height: auto; max-width:540px; margin-top: 20px; border: 3px solid white;">
+                  <thead>
+                    <tr>
+                      <th scope="col">Item</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1 Package (10 seeds)</th>
+                      <td>$9.99</td>
+                      <td><select class="form-select" aria-label="quantity">
+                          <option selected value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                        </select>
+                      </td>
+                    </tr>
+                   
+                   
+                  </tbody>
+                </table>
+                {%if current_user.is_authenticated %}
+                <button type="submit" onclick="addItem()" class="btn btn-secondary btn-lg" style="margin-right:398px;">Add to Cart!</button>
+                {% else %}
+                <a class="text-decoration-none" href="{{ url_for('login') }}" style="margin-right:413px;">Login to Purchase</a> 
+                {% endif %}
+                <p id="demo"></p>
+              </div>
+                
+            <div class="col-4" style="margin-top:25px;">
+              <h2 class="display-4" style="font-weight: 400;color:rgb(54, 65, 53)">{{ product.name }}</h2><br>
+                <p align="justify" style="max-height:150px; max-width:540px; font-style: italic; font-weight: 300; font-size: 1.2em; font-family: 'Roboto', 'Work Sans', Arial, Helvetica, sans-serif;">{{ seed_info[product.name] }}</p>
             </div>  
         </div>
         <div class="row justify-content-center">
-            <div class="col-5">   
+            <div class="col-4">  
             </div>  
-            <div class="col-5">
-                <table class="table table-striped table-secondary table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">Item</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1 Package (10 seeds)</th>
-                        <td>$9.99</td>
-                        <td><select class="form-select" aria-label="quantity">
-                            <option selected value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="3">4</option>
-                            <option value="3">5</option>
-                            <option value="3">6</option>
-                            <option value="3">7</option>
-                            <option value="3">8</option>
-                            <option value="3">9</option>
-                          </select>
-                        </td>
-                      </tr>
-                     
-                     
-                    </tbody>
-                  </table>
-                  {%if current_user.is_authenticated %}
-                  <button type="submit" onclick="addItem()" class="btn btn-secondary btn-lg">Add to Cart!</button>
-                  {% else %}
-                  <a href="{{ url_for('login') }}">Login to Purchase</a> 
-                  {% endif %}
-                  <p id="demo"></p>
-                  
+            <div class="col-4">
             </div>  
     </div>
     </div>
