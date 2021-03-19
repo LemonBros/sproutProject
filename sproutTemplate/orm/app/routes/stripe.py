@@ -3,12 +3,13 @@ import stripe
 from flask import render_template, jsonify
 import os
 from app.model.cart_item import CartItem
-from flask_login import current_user
+from flask_login import current_user, login_required
 from app.model.login import User
 from app.controller.product_controller import *
 
 
 @app.route('/checkout')
+@login_required
 def checkout():
     stripe.api_key = "sk_test_51IRpyvJPjBOs8E64GrvdG9FN5b34EBHhLRUTDvyebzfN9cir7V8t8SbVJ5Yj9g872boSnG1ErV0rWi5q6vKQwD5800elLLgsPd"
     intent = stripe.PaymentIntent.create(
@@ -21,11 +22,13 @@ def checkout():
     return "it worked"
 
 @app.route('/paypage')
+@login_required
 def paypage():
     return render_template('/checkout/index.html')
 
 
 @app.route('/success')
+@login_required
 def success():
     whatever = CartItem.get_for_user(current_user.id)
     for i in range(0, len(whatever)):
@@ -37,12 +40,14 @@ def success():
 
 
 @app.route('/cancel')
+@login_required
 def cancel():
-    return render_template('/checkout/cancel.html')
+    return render_template('/cart/cart.html')
 
 stripe.api_key = 'sk_test_51IRpyvJPjBOs8E64GrvdG9FN5b34EBHhLRUTDvyebzfN9cir7V8t8SbVJ5Yj9g872boSnG1ErV0rWi5q6vKQwD5800elLLgsPd'
 
 @app.route('/create-checkout-session', methods=['POST'])
+@login_required
 def create_checkout_session():
   cart_items = CartItem.get_for_cart(current_user.id)
   empty_list = []

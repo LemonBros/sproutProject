@@ -57,11 +57,11 @@ function addItem(){
                   </tbody>
                 </table>
                 {%if current_user.is_authenticated %}
-                <button type="submit" onclick="addItem()" class="btn btn-secondary btn-lg" style="margin-right:398px;">Add to Cart!</button>
+                <button type="submit" onclick="addItem()" class="btn btn-secondary btn-lg" style="margin-right:398px;width:7em;height:auto;">Add to Cart</button>
                 {% else %}
                 <a class="text-decoration-none" href="{{ url_for('login') }}" style="margin-right:413px;">Login to Purchase</a> 
                 {% endif %}
-                <p id="demo"></p>
+                <p class="text-right, text-success" id="demo" style="font-weight: 500;"></p>
               </div>
                 
             <div class="col-4" style="margin-top:25px;">
