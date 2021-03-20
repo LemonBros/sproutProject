@@ -6,8 +6,7 @@ body {
 }
 a {
 	text-decoration: none;
-	font-weight: 600;
-	font-size: 0.8em;
+	
 }
 main {
     /* 	Since we have .background as an absolute position, we need to specify the z-index of main and to do so we need to add a position property */
@@ -38,7 +37,6 @@ main {
 	margin-top: 2em;
 	border: 2em;
 	border-radius: 5px;
-	font-weight: 700;
 	cursor: pointer;
 }
 .sign-up {
@@ -60,7 +58,5 @@ main {
 	border-radius: 5px;
 }
 .auth-card >h1 {
-	font-size: 1.5em;
-	font-weight: 700;
 	margin-bottom: 1.25em;
 }
