@@ -1,11 +1,12 @@
 from app import app
 import stripe
-from flask import render_template, jsonify
+from flask import render_template, jsonify, redirect, url_for
 import os
 from app.model.cart_item import CartItem
 from flask_login import current_user, login_required
 from app.model.login import User
-from app.controller.product_controller import *
+from app.controller.product_controller import ProductController
+from app.controller.cart_controller import CartController
 
 
 @app.route('/checkout')
@@ -34,15 +35,15 @@ def success():
     for i in range(0, len(whatever)):
         seed_id = whatever[i]['id']
         quantity = whatever[i]['qty']    
-        minus_stock(seed_id, quantity)
+        ProductController.minus_stock(seed_id, quantity)
     CartItem.clear_on_logout(current_user.id)   
-    return render_template('/home/index.html')
+    return render_template('/checkout/success.html')
 
 
 @app.route('/cancel')
 @login_required
 def cancel():
-    return render_template('/cart/cart.html')
+    return redirect(url_for('get_cart'))
 
 stripe.api_key = 'sk_test_51IRpyvJPjBOs8E64GrvdG9FN5b34EBHhLRUTDvyebzfN9cir7V8t8SbVJ5Yj9g872boSnG1ErV0rWi5q6vKQwD5800elLLgsPd'
 
@@ -76,7 +77,7 @@ def create_checkout_session():
     line_items=empty_list,
     mode='payment',
     success_url='http://localhost:5000/success',
-    cancel_url='https://localhost:5000/cancel',
+    cancel_url='http://localhost:5000/cancel',
   )
 
   return jsonify(id=session.id)
