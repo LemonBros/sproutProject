@@ -68,6 +68,10 @@ def create_checkout_session():
         empty_list.append(any_name)
   print("cart_items is ", cart_items) 
   session = stripe.checkout.Session.create(
+    billing_address_collection='auto',
+    shipping_address_collection={
+    'allowed_countries': ['US', 'CA'],
+  },
     payment_method_types=['card'],
     line_items=empty_list,
     mode='payment',
