@@ -1,37 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <head>
     <link rel="stylesheet" href="{{url_for('static', filename='styles/login.css')}}">
 </head>
+
 <body>
-<main>
+    <main>
 
 
-<div class="auth-card">
-    <h1>Sign In</h1>
-    
-        <form class="sleek-input" action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p class="remember-me">{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p class="buitton-class">{{ form.submit() }}</p><br>
-        <a class="sign-up" href="{{ url_for('registration') }}">Register Here!</a>
-        </form>
-    </div>
-</main>
+        <div class="auth-card">
+            <h1>Sign In</h1>
+
+            <form class="sleek-input" action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.username.label }}<br>
+                    {{ form.username(size=32) }}<br>
+                    {% for error in form.username.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=32) }}<br>
+                    {% for error in form.password.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p class="remember-me">{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+                <p class="buitton-class">{{ form.submit() }}</p><br>
+                <a class="sign-up" href="{{ url_for('registration') }}">Register Here!</a>
+            </form>
+        </div>
+
+    </main>
 </body>
 {% endblock %}

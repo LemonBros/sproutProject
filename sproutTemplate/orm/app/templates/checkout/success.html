@@ -9,8 +9,38 @@
     <title>It works</title>
 </head>
 
+<style>
+    .confirmed-message>h1 {
+        color: #318A67;
+        font-weight: bold;
+        font-size: 60px;
+    }
+
+    .box_container {
+        width: 600px;
+        height: 250px;
+        padding: 50px;
+        margin: 20px;
+        text-align: center;
+        margin-top: 8em;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 10px 5px #b2bec3;
+        ;
+    }
+</style>
+
+
 <body>
-    <h1>Yay you paid</h1>
+    <div class="box_container">
+        <div class="confirmed-message">
+            <h1>Thank You!</h1>
+            <h4>The Payment has been Confirmed.</h4>
+        </div>
+    </div>
+
 </body>
 
 {% endblock %}
