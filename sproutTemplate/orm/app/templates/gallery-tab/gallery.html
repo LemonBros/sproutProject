@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/gallery.css')}}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initial-scale-1.0">
+</head>
+
+<body>
+  <div class="gallery">
+
+    {% for item in inventory: %}
+
+    <div class="card">
+      <p>{{item.name}}</p>
+
+      <a href="{{ url_for('product') }}?id={{ item.id }}">
+        <img src="{{url_for('static', filename=item.imagePath)}}" class="p" alt="productImage">
+      </a>
+    </div>
+
+
+    {% endfor %}
+
+  </div>
+</body>
+
+
+
+
+
+<!-- {% if seed_type == "flower" %}
+        <div class="bottom">
+          <div class="products">
+            <div class="product-1">
+              <a href="{{ url_for('product') }}?id={{ item.id }}">{{ item.name }}</a>
+                    <img src="{{url_for('static', filename='images/giveMeImage.png')}}"class="p" alt="product-1"></a></div>
+     
+            <div class="product-2">
+                <a href="{{ url_for('product2') }}">
+                    <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-2"></a></div>
+         
+            <div class="product-3">
+                <a href="{{ url_for('product3') }}">
+                    <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-3"></a></div>
+  
+          </div>
+        </div>
+      
+{% elif seed_type == "vegetable" %}
+  <div class="bottom">
+    <div class="products">
+      <div class="product-1">
+          <a href="{{ url_for('product1') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}"class="p" alt="product-1"></a></div>
+
+      <div class="product-2">
+          <a href="{{ url_for('product2') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-2"></a></div>
+  
+      <div class="product-3">
+          <a href="{{ url_for('product3') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-3"></a></div>
+
+
+    </div>
+  </div>
+
+
+{% elif seed_type == "fruit" %}
+  <div class="bottom">
+    <div class="products">
+      <div class="product-1">
+          <a href="{{ url_for('product1') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}"class="p" alt="product-1"></a></div>
+
+      <div class="product-2">
+          <a href="{{ url_for('product2') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-2"></a></div>
+
+      <div class="product-3">
+          <a href="{{ url_for('product3') }}">
+              <img src="{{url_for('static', filename='images/giveMeImage.png')}}" class="p" alt="product-3"></a></div>
+
+    </div>
+  </div>
+
+{% endif %} -->
+{% endblock %}

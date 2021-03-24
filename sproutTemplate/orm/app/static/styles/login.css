@@ -1,0 +1,67 @@
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+a {
+	text-decoration: none;
+	
+}
+main {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 5px #b2bec3;
+    /* 	Since we have .background as an absolute position, we need to specify the z-index of main and to do so we need to add a position property */
+    position: relative;
+    z-index: 10;
+    width: 60%;
+    /* 	Limit to how big or how small the form can be in order to keep the design look intact */
+    max-width: 500px;
+    min-width: 300px;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.sleek-input {
+	width: 100%;
+	border: 0;
+	border-radius: 4px;
+}
+
+.remember-me {
+	display: inline;
+}
+
+.button-class {
+	padding: 1em;
+	margin-top: 2em;
+	border: 2em;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.sign-up {
+	
+	margin-left: 1em;
+}
+@media screen and (max-width: 768px) {
+	.auth-card {
+		padding: 2.5em 1em 4em;
+		
+	}
+	
+	.background {
+		height: calc(15% + 5000px);
+	}
+}
+.auth-card {
+	width: 100%;
+	padding: 2.5em 4em 2em;
+	border-radius: 5px;
+	
+}
+.auth-card >h1 {
+	margin-bottom: 1.25em;
+}

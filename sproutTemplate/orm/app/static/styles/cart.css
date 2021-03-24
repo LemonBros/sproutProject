@@ -1,0 +1,26 @@
+.order{
+    background-color: #95c7b1;
+    display: grid;
+    
+}
+
+.order > .header {
+    background-color: #cfd8dc;
+    grid-column: span 6;
+    text-align: center;
+}
+
+.quantity-field{
+    background-color: #cfd8dc;
+    width:100%;
+}
+
+.option{
+    visibility:hidden;
+}
+
+.summary{
+    display:grid;
+
+}
+
