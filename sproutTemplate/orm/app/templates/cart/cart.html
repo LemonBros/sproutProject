@@ -16,41 +16,45 @@
             removeBtn[0].disabled = true
         }
     </script>
-    <div class="order">
-        <div class="header">Cart</div>
-        <div>N</div>
-        <div>Description</div>
-        <div>Price, $</div>
-        <div>Quantity</div>
-        <div>Cost, $</div>
-        <div class="option"></div>
-
-        {% for item in members: %}
-        
-        <div>{{ item.n }}</div>
-        <div>{{ item.name }}</div>
-        <div>{{ item.price }}</div>
-        <form method="post" action="{{url_for('removed', item_removed = item.id)}}">
-        <div>
-            <input id="qty-update" type="number" name="qty" value={{ item.qty }} min="0" max="99" class="quantity-field">
+    <div class="order" style ="width: 60em;margin-left: auto;margin-right:auto; margin-top: 3em; border-radius: 15px 50px;">
+        <div align="center" style="margin-top: 1em">
+            <h1>My Cart</h1>
         </div>
-        <div>   
-            <input id="update-btn" type="submit" name="delete" value="Update"> 
-        </div>
-        </form>
-        <div>{{ item.cost }}</div>
-        <div class="option"></div>
-        
-        {% endfor %}
-
-        <div class="total">
-            <div>Total</div>
-            <div>
-                <button id="checkout-button">Checkout</button>
-            </div>
-        </div>
-
-
+        <table class="table table-striped table-success" style="width: 55em; margin-left:2.5em; margin-top:1em; border-radius: 25px; border: 3px solid white;">
+            <thead>
+                <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col"></th>    
+                <th scope="col">Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in members: %}
+                <tr>
+                    <th scope="row">{{ item.n }}</th>
+                    <td style="font-weight: 500;">{{ item.name }}</td>
+                    <td>${{ item.price }}</td>
+                    
+                    <form method="post" action="{{url_for('removed', item_removed = item.id)}}">
+                    <td> <input id="qty-update" type="number" name="qty" value={{ item.qty }} min="0" max="99" class="quantity-field" style="max-width: 5em;"> </td>
+                    <td> <input id="update-btn" type="submit" name="delete" value="Update"></td>
+                    </form>
+                    <td style="font-weight: 700;">${{ item.cost }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"><button id="checkout-button" class="btn btn-secondary btn-lg">Checkout</button></th>
+                    <th scope="col"> ${{ members | sum(attribute='cost') }} </th> 
+                </tr>
+            </tbody>
+        </table>
     </div>
 </main>
 {% endblock %}

@@ -35,7 +35,6 @@ class CartItem(db.Model):
         # list comprehension.
         # enumerate() is a function used to add indices to list elements
         result = [{'qty': item[0],'id':item[1], 'name': item[2], 'price': item[3], 'cost': item[0]*item[3], 'n': i+1} for i, item in enumerate(items)]
-        app.logger.error("result: {}".format(result))
         return result
 
     @staticmethod

@@ -1,5 +1,4 @@
 from app import app
-from app.model.cart_item import CartItem
 from app.controller.product_controller import ProductController
 from app.controller.cart_controller import CartController
 from flask import request, redirect, url_for, request, flash
