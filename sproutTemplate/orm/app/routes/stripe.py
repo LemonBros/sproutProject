@@ -19,7 +19,7 @@ def checkout():
     payment_method_types=['card'],
     receipt_email=User.get_email(current_user.id),
     )
-    print(intent)
+
     return "it worked"
 
 @app.route('/paypage')
@@ -66,8 +66,7 @@ def create_checkout_session():
         # replace with item 2
         'quantity': cart_items[i]['quantity'],
       }
-        empty_list.append(any_name)
-  print("cart_items is ", cart_items) 
+        empty_list.append(any_name) 
   session = stripe.checkout.Session.create(
     billing_address_collection='auto',
     shipping_address_collection={
@@ -76,8 +75,8 @@ def create_checkout_session():
     payment_method_types=['card'],
     line_items=empty_list,
     mode='payment',
-    success_url='http://localhost:5000/success',
-    cancel_url='http://localhost:5000/cancel',
+    success_url='https://sprout-seed.me/success',
+    cancel_url='https://sprout-seed.me/cancel',
   )
 
   return jsonify(id=session.id)
