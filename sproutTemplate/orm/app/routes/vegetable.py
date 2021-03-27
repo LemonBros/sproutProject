@@ -1,6 +1,6 @@
 from app import app 
 from flask import render_template
-
+# shows the vegetable page
 @app.route('/vegetable')
 def vegetable():
     seed_type = "vegetable"

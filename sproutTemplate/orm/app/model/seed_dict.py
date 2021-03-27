@@ -1,4 +1,4 @@
-
+# where we store the information for the seed page discriptions
 seed_info = {
     "Strawberry" : '''Fresca strawberry seeds are so tiny it's hard to believe that these miniature seeds produce big, 
                     mouthwatering traditional strawberries. Start the seeds indoors during the winter and place the seedlings out after the last frost. 

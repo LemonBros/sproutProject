@@ -1,5 +1,5 @@
 from app import db
-
+# the seed database
 class Seed(db.Model):
 
     #id is the primary key column for the Shoe model
@@ -19,9 +19,9 @@ class Seed(db.Model):
     def __repr__(self):
         return '<Name {}, Type {}, Price {}, Quantity {}, Id {}>'.format(self.name, self.seed_type, self.price, self.quantity, self.id)
     
-    #method to save the shoe
+    #method to save the seed
     def save(self):
-    #     #saving the shoe, insert row into Shoe table
+    #     #saving the seed, insert row into Shoe table
         db.session.add(self)
     #     #commit the transaction
         db.session.commit()
@@ -29,7 +29,7 @@ class Seed(db.Model):
         return self.id
 
     def get_all():
-    #     #get all the shoes from the database
+    #     #get all the seeds from the database
         return Seed.query.all()
 
     @staticmethod
@@ -59,7 +59,7 @@ class Seed(db.Model):
     def minus_qty(self, quantity):
         self.quantity -= quantity
 
-    
+    # the methods beyond this are for the admin to use
     @staticmethod
     def adminupdate(seedname, quantity):
         adminseed = db.session.query(Seed).filter(Seed.id == seedname).first()

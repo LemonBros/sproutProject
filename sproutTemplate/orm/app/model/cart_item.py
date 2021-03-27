@@ -5,7 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from sqlalchemy import select
-
+# the functios names discribes what they do.
 class CartItem(db.Model):
     seed_id = db.Column(db.Integer, db.ForeignKey('seed.id'), primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
@@ -60,6 +60,4 @@ class CartItem(db.Model):
     def get_for_cart(user_id):
         items = db.session.query(Seed.name, Seed.price, CartItem.quantity).filter(CartItem.user_id == user_id).filter(CartItem.seed_id == Seed.id).all()
         result = [{'name': item[0],'price':item[1], 'quantity': item[2],'n': i+1} for i, item in enumerate(items)]
-        print("this is items", items)
-        print("result", result)
         return result

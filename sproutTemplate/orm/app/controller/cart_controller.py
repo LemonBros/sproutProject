@@ -5,7 +5,12 @@ from app.controller.product_controller import ProductController
 from app import db
 
 class CartController:
-
+    # '''this cart controller has:
+    # get_all() which gets all the cart items based on current user
+    # add() which will add the seed to the cart
+    # delete() which wil delete from the cart
+    # update() which will update the cart
+    # clear_cart() which will clear the cart'''
     @staticmethod
     def get_all():
         if current_user.is_authenticated:

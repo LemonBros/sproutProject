@@ -7,7 +7,7 @@ from flask_login import current_user, login_required
 from app.model.login import User
 from app.controller.product_controller import ProductController
 from app.controller.cart_controller import CartController
-
+# most of this is from stripe quickstart page which explains what everything here does.
 
 @app.route('/checkout')
 @login_required
@@ -37,7 +37,7 @@ def success():
         quantity = whatever[i]['qty']    
         ProductController.minus_stock(seed_id, quantity)
     CartItem.clear_on_logout(current_user.id)   
-    return render_template('/checkout/success.html')
+    return render_template('/checkout/success.html', title= 'Success')
 
 
 @app.route('/cancel')
@@ -51,7 +51,7 @@ stripe.api_key = 'sk_test_51IRpyvJPjBOs8E64GrvdG9FN5b34EBHhLRUTDvyebzfN9cir7V8t8
 @login_required
 def create_checkout_session():
   cart_items = CartItem.get_for_cart(current_user.id)
-  empty_list = []
+  empty_list = [] # its empty for now but we fill it with items and give it to line_items
   for i in range(0,len(cart_items)):
         any_name = {
         'price_data': {

@@ -1,7 +1,7 @@
 from flask_login import current_user, login_user, user_logged_out
 from app.model.login import User, LoginForm
 from flask import render_template, redirect, url_for, flash
-
+# this is for login page.returns the login page with the form which is used to give information to the database to check
 class LoginController(object):
     def login(self):
         if current_user.is_authenticated:

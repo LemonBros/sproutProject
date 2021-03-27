@@ -7,6 +7,7 @@ from app.model.seedform import SeedForm, SeedUpdate, SeedDelete
 
 class AdminController():
     def seedregister(self):
+        #this function registers the seed into the database
         form = SeedForm()
         if form.validate_on_submit():
             seed = Seed(name=form.seedname.data, seed_type=form.seed_type.data,
@@ -16,9 +17,10 @@ class AdminController():
             flash('Congratulations, you add seeds to the store!')
             return redirect(url_for('admin'))
         seeddisplay = Seed.get_all()
-        return render_template('admin/admin.html', title='Admin', form=form, seeddisplay=seeddisplay)
+        return render_template('admin/admin.html', title='Admin Register', form=form, seeddisplay=seeddisplay)
     
-    def seedupdate(self):    
+    def seedupdate(self): 
+        #this function updates the seed database   
         all_seeds = db.session.query(Seed).order_by('name').all()
         seed_group_name = [(i.id, i.name) for i in all_seeds]
         form = SeedUpdate()
@@ -29,9 +31,10 @@ class AdminController():
             return redirect(url_for('adminupdate'))
         
         seeddisplay = Seed.get_all()
-        return render_template('admin/adminupdate.html', title='Admin', seedupdate=form, seeddisplay=seeddisplay)
+        return render_template('admin/adminupdate.html', title='Admin Update', seedupdate=form, seeddisplay=seeddisplay)
 
     def seeddelete(self):
+        #this function deletes the seed from the database
         all_seeds = db.session.query(Seed).order_by('name').all()
         seed_group_name = [(i.id, i.name) for i in all_seeds]
         form = SeedDelete()
@@ -41,7 +44,7 @@ class AdminController():
             flash('Deleted Seed')
             return redirect(url_for('admindelete'))
         seeddisplay = Seed.get_all()
-        return render_template('admin/admindelete.html', title='Admin', seeddelete=form, seeddisplay=seeddisplay)
+        return render_template('admin/admindelete.html', title='Admin Delete', seeddelete=form, seeddisplay=seeddisplay)
 
 
 

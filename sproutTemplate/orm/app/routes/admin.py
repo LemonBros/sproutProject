@@ -1,7 +1,7 @@
 from app import app, login
 from app.controller.admin_controller import admin_controller
 from flask_login import login_required
-
+# view the admin page
 
 @app.route('/admin', methods=['GET', 'POST'])
 @login_required

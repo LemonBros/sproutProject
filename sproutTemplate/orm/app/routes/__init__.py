@@ -9,3 +9,5 @@ import app.routes.vegetable
 import app.routes.admin
 import app.routes.cart
 import app.routes.stripe
+import app.routes.logout_controller
+# this is where the named packages will be called in the main.py

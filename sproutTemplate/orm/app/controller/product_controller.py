@@ -1,7 +1,7 @@
 from flask import render_template
 from app.model.seed import Seed
 from app import db
-
+# product controller for getting the product, product quatity, getting the image and removing the seed from the datatbase
 class ProductController():
     def get_product(id):
         return Seed.get(id)

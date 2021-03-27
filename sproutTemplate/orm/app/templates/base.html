@@ -41,8 +41,10 @@
 
         /* .fa-shopping-cart {} */
     </style>
-
-    <title>Sprout</title>
+    <title>Sprout | {{title}}</title>
+    <link rel="icon" 
+      type="image/png" 
+      href="{{url_for('static', filename='images/sprout_logo_image.png')}}">
 </head>
 
 <body class="body">
@@ -51,12 +53,6 @@
     <div class="container" style="margin-top:25px">
         <a href="{{ url_for('home') }}"><img src="{{url_for('static', filename='images/Sprout-Logo.png')}}"
                 alt="sprout_logo" style="width:350px;"></a>
-
-        <!-- {% if current_user.is_authenticated %}
-        {{ current_user.username }}
-        <a href="{{ url_for('get_cart') }}"><img src="{{url_for('static', filename='images/cart-01.png')}}" alt="cart"
-                style="width:50px;"></a>
-        {% endif %} -->
 
     </div>
 

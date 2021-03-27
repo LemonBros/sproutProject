@@ -4,7 +4,7 @@ from flask import render_template, redirect, url_for, flash
 from flask_login import current_user, login_user
 from app.model.login import User, LoginForm
 
-
+# contfrolls the registration and adds new user to the database
 class RegisterController():
     def register(self):
         if current_user.is_authenticated:

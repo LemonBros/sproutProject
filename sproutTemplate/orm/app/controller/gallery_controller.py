@@ -1,6 +1,6 @@
 from flask import render_template
 from app.model.seed import Seed
-
+# """gallery controller returns the image path and the gallery items name"""
 class GalleryController:
     @staticmethod
     def get(seed_type):

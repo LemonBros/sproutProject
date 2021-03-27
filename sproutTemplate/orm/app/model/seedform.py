@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, InputRequired
 from app.model.seed import Seed
-
+# this is for the admin to use in which we add to the database
 class SeedForm(FlaskForm):
     seedname = StringField('Seed Name', validators=[DataRequired()])
     seed_type = StringField('Seed Type', validators=[DataRequired()])

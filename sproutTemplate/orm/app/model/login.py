@@ -7,7 +7,6 @@ from wtforms.validators import DataRequired
 from app import login
 from flask import flash
 
-
 @login.user_loader
 def user_loader(id):
     user = User.get(id)
@@ -15,7 +14,8 @@ def user_loader(id):
         flash('You have been automatically logged out')
         # user.update()
     return User.query.get(int(id))
-
+# User class with methods insode
+# all methids names discribs them
 class User(UserMixin, db.Model):
 
     #id is the primary key column for the Shoe model
@@ -32,7 +32,7 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return '<User {}><Email and ID {} {}>'.format(self.username, self.email, self.id)
     
-    #method to save the shoe
+    #method to save the user
     def save(self):
     #     #saving the shoe, insert row into Shoe table
         db.session.add(self)
@@ -42,7 +42,7 @@ class User(UserMixin, db.Model):
         return self.id
 
     def get_all():
-    #     #get all the shoes from the database
+    #     #get all the users from the database
         return User.query.all()
 
     def delete(id):
@@ -61,7 +61,7 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-    
+    # gets email from user
     def get_email(id):
         user = User.get(id=id)
         return user.email 
